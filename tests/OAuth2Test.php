@@ -77,7 +77,7 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         $this->fixture->verifyAccessToken($this->tokenId, $scope);
     }
 
-        /**
+    /**
      * Tests OAuth2->verifyAccessToken() with different expiry dates
      *
      * @dataProvider generateExpiryTokens
@@ -105,7 +105,7 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         }
     }
 
-        /**
+    /**
      * Tests OAuth2->verifyAccessToken() with different scopes
      *
      * @dataProvider generateScopes
@@ -233,7 +233,7 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         }
     }
 
-     /**
+    /**
      * Tests OAuth2->grantAccessToken() with Auth code grant
      *
      */
@@ -292,7 +292,7 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         }
     }
 
-        /**
+    /**
      * Tests OAuth2->grantAccessToken() with checks the client ID is matched
      *
      */
@@ -324,7 +324,7 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         }
     }
 
-     /**
+    /**
      * Tests OAuth2->grantAccessToken() with same Auth code grant
      *
      */
@@ -337,10 +337,10 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         $data = new \stdClass;
 
         $response = $oauth2->finishClientAuthorization(true, $data, new Request(array(
-                'client_id' => 'blah',
-                'redirect_uri' => 'http://www.example.com/?foo=bar',
-                'response_type' => 'code',
-                'state' => '42',
+            'client_id' => 'blah',
+            'redirect_uri' => 'http://www.example.com/?foo=bar',
+            'response_type' => 'code',
+            'state' => '42',
         )));
 
         $code = $stub->getLastAuthCode();
@@ -371,7 +371,7 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         $this->fixture->grantAccessToken(/* parameters */);
     }
 
-        /**
+    /**
      * Tests OAuth2->grantAccessToken() with user credentials
      *
      */
@@ -509,7 +509,7 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         $this->assertSame('scope1 scope2', $token->getScope());
     }
 
-        /**
+    /**
      * Tests OAuth2->grantAccessToken() with client credentials
      *
      */
@@ -520,7 +520,7 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         $this->fixture->grantAccessToken(/* parameters */);
     }
 
-        /**
+    /**
      * Tests OAuth2->grantAccessToken() with refresh token
      *
      */
@@ -568,6 +568,43 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests OAuth2->grantAccessToken() with extension with limited timeframe
+     */
+    public function testGrantAccessTokenWithGrantExtensionLimitedLifetime()
+    {
+        $clientId = 'cid';
+        $clientSecret = 'csecret';
+        $grantType = 'http://company.com/fb_access_token_time_limited';
+        $fbId = '35';
+        $fbAccessToken = 'da4b9237bacccd_35';
+
+        $stub = new \OAuth2\Tests\Fixtures\OAuth2GrantExtensionLifetimeStub();
+        $stub->addClient(new OAuth2Client($clientId, $clientSecret));
+        $stub->setAllowedGrantTypes(array($grantType));
+        $stub->addFacebookId($fbId);
+        $oauth2 = new OAuth2($stub);
+
+        $response = $oauth2->grantAccessToken(new Request(array(
+            'grant_type' => $grantType,
+            'client_id' => $clientId,
+            'client_secret' => $clientSecret,
+            'fb_access_token' => $fbAccessToken,
+        )));
+
+        $this->assertSame(array(
+            'content-type' => array('application/json'),
+            'cache-control' => array('no-store, private'),
+            'pragma' => array('no-cache'),
+        ), array_diff_key(
+            $response->headers->all(),
+            array('date' => null)
+        ));
+
+        $this->assertRegExp('{"access_token":"[^"]+","expires_in":86400,"token_type":"bearer"}', $response->getContent());
+    }
+
+
+    /**
      * Tests OAuth2->getAuthorizeParams()
      */
     public function testGetAuthorizeParams()
@@ -591,10 +628,10 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
         $data = new \stdClass;
 
         $response = $oauth2->finishClientAuthorization(true, $data, new Request(array(
-                'client_id' => 'blah',
-                'redirect_uri' => 'http://www.example.com/?foo=bar',
-                'response_type' => 'code',
-                'state' => '42',
+            'client_id' => 'blah',
+            'redirect_uri' => 'http://www.example.com/?foo=bar',
+            'response_type' => 'code',
+            'state' => '42',
         )));
 
         $this->assertSame(302, $response->getStatusCode());
@@ -770,9 +807,9 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
 
         try {
             $response = $oauth2->finishClientAuthorization(true, $data, new Request(array(
-                    'client_id' => 'blah',
-                    'redirect_uri' => 'http://www.example.com/?foo=bar',
-                    'state' => '42',
+                'client_id' => 'blah',
+                'redirect_uri' => 'http://www.example.com/?foo=bar',
+                'state' => '42',
             )));
             $this->fail('The expected exception OAuth2ServerException was not thrown');
         } catch (OAuth2ServerException $e) {
@@ -791,10 +828,10 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
 
         try {
             $response = $oauth2->finishClientAuthorization(true, $data, new Request(array(
-                    'client_id' => 'blah',
-                    'redirect_uri' => 'http://www.example.com/?foo=bar',
-                    'state' => '42',
-                    'response_type' => 'token',
+                'client_id' => 'blah',
+                'redirect_uri' => 'http://www.example.com/?foo=bar',
+                'state' => '42',
+                'response_type' => 'token',
             )));
             $this->fail('The expected exception OAuth2ServerException was not thrown');
         } catch (OAuth2ServerException $e) {
@@ -812,10 +849,10 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
 
         try {
             $response = $oauth2->finishClientAuthorization(true, $data, new Request(array(
-                    'client_id' => 'blah',
-                    'redirect_uri' => 'http://www.example.com/?foo=bar',
-                    'state' => '42',
-                    'response_type' => 'foo',
+                'client_id' => 'blah',
+                'redirect_uri' => 'http://www.example.com/?foo=bar',
+                'state' => '42',
+                'response_type' => 'foo',
             )));
             $this->fail('The expected exception OAuth2ServerException was not thrown');
         } catch (OAuth2ServerException $e) {
@@ -833,11 +870,11 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
 
         try {
             $response = $oauth2->finishClientAuthorization(true, $data, new Request(array(
-                    'client_id' => 'blah',
-                    'redirect_uri' => 'http://www.example.com/?foo=bar',
-                    'state' => '42',
-                    'response_type' => 'code',
-                    'scope' => 'x',
+                'client_id' => 'blah',
+                'redirect_uri' => 'http://www.example.com/?foo=bar',
+                'state' => '42',
+                'response_type' => 'code',
+                'scope' => 'x',
             )));
             $this->fail('The expected exception OAuth2ServerException was not thrown');
         } catch (OAuth2ServerException $e) {
@@ -855,10 +892,10 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
 
         try {
             $response = $oauth2->finishClientAuthorization(false, $data, new Request(array(
-                    'client_id' => 'blah',
-                    'redirect_uri' => 'http://www.example.com/?foo=bar',
-                    'state' => '42',
-                    'response_type' => 'code',
+                'client_id' => 'blah',
+                'redirect_uri' => 'http://www.example.com/?foo=bar',
+                'state' => '42',
+                'response_type' => 'code',
             )));
             $this->fail('The expected exception OAuth2ServerException was not thrown');
         } catch (OAuth2ServerException $e) {
@@ -919,37 +956,37 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
 
         foreach (array('POST', 'PUT', 'DELETE', 'FOOBAR') as $method) {
 
-                // $method without remove
-                $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded'), 'access_token=foo');
-                $data[] = array($request, 'foo');
+            // $method without remove
+            $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded'), 'access_token=foo');
+            $data[] = array($request, 'foo');
 
-                // $method without remove and charset
-                $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=utf-8'), 'access_token=foo');
-                $data[] = array($request, 'foo');
+            // $method without remove and charset
+            $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=utf-8'), 'access_token=foo');
+            $data[] = array($request, 'foo');
 
-                // $method without remove and additional information
-                $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded mode=baz'), 'access_token=foo');
-                $data[] = array($request, 'foo');
+            // $method without remove and additional information
+            $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded mode=baz'), 'access_token=foo');
+            $data[] = array($request, 'foo');
 
-                // $method without remove and wrong Content-Type
-                $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded-foo'), 'access_token=foo');
-                $data[] = array($request, null);
+            // $method without remove and wrong Content-Type
+            $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded-foo'), 'access_token=foo');
+            $data[] = array($request, null);
 
-                // $method with remove
-                $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded'), 'access_token=foo');
-                $data[] = array($request, 'foo', true);
+            // $method with remove
+            $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded'), 'access_token=foo');
+            $data[] = array($request, 'foo', true);
 
-                // $method with remove and charset
-                $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=utf-8'), 'access_token=foo');
-                $data[] = array($request, 'foo', true);
+            // $method with remove and charset
+            $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=utf-8'), 'access_token=foo');
+            $data[] = array($request, 'foo', true);
 
-                // $method without remove and additional information
-                $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded mode=baz'), 'access_token=foo');
-                $data[] = array($request, 'foo', true);
+            // $method without remove and additional information
+            $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded mode=baz'), 'access_token=foo');
+            $data[] = array($request, 'foo', true);
 
-                // $method with remove and wrong Content-Type
-                $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded-foo'), 'access_token=foo');
-                $data[] = array($request, null, true);
+            // $method with remove and wrong Content-Type
+            $request = Request::create('/', $method, array(), array(), array(), array('CONTENT_TYPE' => 'application/x-www-form-urlencoded-foo'), 'access_token=foo');
+            $data[] = array($request, null, true);
         }
 
         // No access token provided returns null
@@ -1031,7 +1068,7 @@ class OAuth2Test extends PHPUnit_Framework_TestCase
             ->method('checkRestrictedGrantType')
             ->will($this->returnValue(true)); // Always return true for any combination of user/pass
 
-         return $mockStorage;
+        return $mockStorage;
     }
 
     // Data Providers below:

@@ -130,6 +130,7 @@ class OAuth2
     const CONFIG_WWW_REALM = 'realm';
     const CONFIG_ENFORCE_INPUT_REDIRECT = 'enforce_redirect'; // Set to true to enforce redirect_uri on input for both authorize and token steps.
     const CONFIG_ENFORCE_STATE = 'enforce_state'; // Set to true to enforce state to be passed in authorization (see http://tools.ietf.org/html/draft-ietf-oauth-v2-21#section-10.12)
+    const CONFIG_SEND_REFRESH_TOKEN = 'send_refresh_token';
 
     /**
      * Regex to filter out the client identifier (described in Section 2 of IETF draft).
@@ -828,6 +829,18 @@ class OAuth2
         // if no data is provided than null is set
         $stored += array('scope' => $this->getVariable(self::CONFIG_SUPPORTED_SCOPES, null), 'data' => null);
 
+        if (isset($stored['access_token_lifetime'])) {
+            $this->setVariable(self::CONFIG_ACCESS_LIFETIME, $stored['access_token_lifetime']);
+        }
+
+        if (isset($stored['send_refresh_token'])) {
+            $this->setVariable(self::CONFIG_SEND_REFRESH_TOKEN, $stored['send_refresh_token']);
+        }
+
+        if (isset($stored['refresh_token_lifetime'])) {
+            $this->setVariable(self::CONFIG_ACCESS_LIFETIME, $stored['refresh_token_lifetime']);
+        }
+
         // Check scope, if provided
         if ($input["scope"] && (!isset($stored["scope"]) || !$this->checkScope($input["scope"], $stored["scope"]))) {
             throw new OAuth2ServerException(self::HTTP_BAD_REQUEST, self::ERROR_INVALID_SCOPE, 'An unsupported scope was requested.');
@@ -1313,7 +1326,7 @@ class OAuth2
         );
 
         // Issue a refresh token also, if we support them
-        if ($this->storage instanceof IOAuth2RefreshTokens) {
+        if ($this->storage instanceof IOAuth2RefreshTokens && $this->getVariable(self::CONFIG_SEND_REFRESH_TOKEN, true) === true) {
             $token["refresh_token"] = $this->genAccessToken();
             $this->storage->createRefreshToken(
                 $token["refresh_token"],
