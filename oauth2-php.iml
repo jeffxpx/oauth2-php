@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/lexer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/kriswallsmith/assetic" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/aws/aws-sdk-php" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/migrations" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/rhumsaa/uuid" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/psr/log" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/inflector" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/annotations" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/willdurand/jsonp-callback-validator" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/collections" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jms/serializer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/fp/jsformvalidator-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/twig/twig" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/swiftmailer-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/sensio/generator-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/guzzle/guzzle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/doctrine-migrations-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/hwi/oauth-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/monolog-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/friendsofsymfony/oauth-server-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/phpoption/phpoption" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jms/serializer-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/composer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/lexik/jwt-authentication-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/icu" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/braincrafted/bootstrap-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/components/jquery" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/twig/extensions" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/sensiolabs/security-checker" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/phpcollection/phpcollection" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jdorn/sql-formatter" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/friendsofsymfony/user-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/assetic-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/common" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/incenteev/composer-parameter-handler" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/cache" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/kriswallsmith/buzz" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/willdurand/negotiation" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/orm" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/symfony" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jms/metadata" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/sensio/distribution-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/dbal" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/twbs/bootstrap" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/friendsofsymfony/rest-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/namshi/jose" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/robloach/component-installer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jms/parser-lib" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/friendsofsymfony/oauth2-php" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/monolog/monolog" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/doctrine-bundle" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/lexer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/kriswallsmith/assetic" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/aws/aws-sdk-php" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/migrations" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/rhumsaa/uuid" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/psr/log" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/inflector" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/annotations" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/willdurand/jsonp-callback-validator" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/collections" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jms/serializer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/fp/jsformvalidator-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/twig/twig" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/swiftmailer-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/sensio/generator-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/guzzle/guzzle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/doctrine-migrations-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/hwi/oauth-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/monolog-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/friendsofsymfony/oauth-server-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/phpoption/phpoption" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jms/serializer-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/composer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/lexik/jwt-authentication-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/icu" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/braincrafted/bootstrap-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/components/jquery" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/twig/extensions" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/sensiolabs/security-checker" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/phpcollection/phpcollection" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jdorn/sql-formatter" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/friendsofsymfony/user-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/assetic-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/common" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/incenteev/composer-parameter-handler" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/cache" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/kriswallsmith/buzz" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/willdurand/negotiation" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/orm" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/symfony" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jms/metadata" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/sensio/distribution-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/dbal" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/twbs/bootstrap" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/friendsofsymfony/rest-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/namshi/jose" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/robloach/component-installer" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/jms/parser-lib" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/friendsofsymfony/oauth2-php" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/monolog/monolog" />
+          <root url="file://$USER_HOME$/Shares/arxfitcloud/vendor/doctrine/doctrine-bundle" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="phar://$USER_HOME$/Shares/arxfitcloud/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
+
